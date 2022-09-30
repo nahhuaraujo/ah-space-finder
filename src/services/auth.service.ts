@@ -1,9 +1,9 @@
 import { User } from '../models';
 
 export const loginService = async (username: string, password: string): Promise<User | undefined> => {
-  if (username === 'username' && password === 'admin') {
+  if (username === 'test' && password === '1234') {
     return {
-      username: 'username',
+      username: 'tester',
       email: 'test@test.com',
     };
   } else {

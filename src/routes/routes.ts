@@ -3,6 +3,6 @@ export enum PublicRoutes {
 }
 
 export enum PrivateRoutes {
-  HOME = 'home',
+  PRIVATE = 'private',
   PROFILE = 'profile',
 }
