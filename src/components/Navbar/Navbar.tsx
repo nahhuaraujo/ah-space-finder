@@ -5,6 +5,7 @@ const Navbar = () => {
   return (
     <S.Navbar>
       <Link to='/'>Home</Link>
+      <Link to='dashboard'>Dashboard</Link>
       <Link to='profile'>Profile</Link>
     </S.Navbar>
   );

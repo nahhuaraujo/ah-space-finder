@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-import { Private } from './components';
+import { Private } from './pages';
 import { AuthGuard } from './guards';
 import { User } from './models';
 import { Login, NotFound } from './pages';
