@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Navbar } from '../../components';
-import { Home, Profile, NotFound } from '../';
+import { Home, Dashboard, Profile } from '../Private';
+import { NotFound } from '../../pages';
 
 const Private = () => {
   return (
@@ -8,7 +9,7 @@ const Private = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/dashboard' element={<h1>Soy el dashboard</h1>} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
