@@ -1,28 +1,17 @@
-import { useState } from 'react';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-import { Private } from './pages';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthGuard } from './guards';
-import { User } from './models';
-import { Login, NotFound } from './pages';
+import { Login, NotFound, Private } from './pages';
 import { PrivateRoutes, PublicRoutes } from './routes';
 
 const App = () => {
-  const [user, setUser] = useState<User | undefined>(undefined);
-  const navigate = useNavigate();
-
-  const loginHandler = (user: User | undefined) => {
-    setUser(user);
-    if (user) navigate('private');
-  };
-
   return (
     <div>
       <Routes>
         <Route path='/' element={<Navigate to={PrivateRoutes.PRIVATE} />} />
-        <Route element={<AuthGuard user={user} />}>
+        <Route element={<AuthGuard />}>
           <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<Private />} />
         </Route>
-        <Route path={PublicRoutes.LOGIN} element={<Login login={loginHandler} />} />
+        <Route path={PublicRoutes.LOGIN} element={<Login />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

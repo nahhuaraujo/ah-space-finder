@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useUserActions } from '../../hooks';
 import { User } from '../../models';
+import { PrivateRoutes } from '../../routes';
 import { loginService } from '../../services';
-
-interface Props {
-  login: (user: User | undefined) => void;
-}
 
 interface State {
   username: string;
@@ -13,13 +12,15 @@ interface State {
   loginSuccessful: boolean;
 }
 
-const Login = (props: Props) => {
+const Login = () => {
   const [loginFormData, setLoginFormData] = useState<State>({
     username: '',
     password: '',
     loginAttempted: false,
     loginSuccessful: false,
   });
+  const { login } = useUserActions();
+  const navigate = useNavigate();
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginFormData({ ...loginFormData, [e.target.name]: e.target.value });
@@ -27,12 +28,13 @@ const Login = (props: Props) => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const loggedUser: User | undefined = await loginService(loginFormData.username, loginFormData.password);
-    props.login(loggedUser);
+    const user: User | undefined = await loginService(loginFormData.username, loginFormData.password);
+    login(user);
+    if (user) navigate(`/${PrivateRoutes.PRIVATE}`);
     setLoginFormData({
       ...loginFormData,
       loginAttempted: true,
-      loginSuccessful: !!loggedUser,
+      loginSuccessful: !!user,
     });
   };
 
