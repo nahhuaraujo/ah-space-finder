@@ -1,11 +1,9 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { User } from '../models';
 import { PublicRoutes } from '../routes';
+import { useSelector } from 'react-redux';
+import { AppStore } from '../redux/store';
 
-interface Props {
-  user: User | undefined;
-}
-
-export const AuthGuard = (props: Props) => {
-  return props.user ? <Outlet /> : <Navigate to={PublicRoutes.LOGIN} />;
+export const AuthGuard = () => {
+  const user = useSelector((store: AppStore) => store.user);
+  return !!user.username ? <Outlet /> : <Navigate to={PublicRoutes.LOGIN} />;
 };
