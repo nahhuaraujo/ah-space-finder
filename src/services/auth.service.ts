@@ -5,6 +5,8 @@ export const loginService = async (username: string, password: string): Promise<
     return {
       username: 'tester',
       email: 'test@test.com',
+      job: 'Web UI Developer',
+      age: 28,
     };
   } else {
     return undefined;

@@ -5,6 +5,8 @@ import { getLocalStorage, setLocalStorage, clearLocalStorage } from '../../utils
 const initialState: User = {
   email: '',
   username: '',
+  job: '',
+  age: 0,
 };
 
 export const userSlice = createSlice({
