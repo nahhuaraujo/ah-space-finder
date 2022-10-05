@@ -1,8 +1,10 @@
+import * as S from './Dashboard.styled';
+
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Soy el dashboard</h1>
-    </div>
+    <S.Dashboard>
+      <h1>Dashboard</h1>
+    </S.Dashboard>
   );
 };
 

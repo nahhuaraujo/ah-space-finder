@@ -1,8 +1,10 @@
+import * as S from './Home.styled';
+
 const Home = () => {
   return (
-    <div>
-      <h1>Soy el home</h1>
-    </div>
+    <S.Home>
+      <h1>Home</h1>
+    </S.Home>
   );
 };
 
