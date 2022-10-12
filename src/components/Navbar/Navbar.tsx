@@ -13,6 +13,7 @@ const Navbar = () => {
   return (
     <S.Navbar>
       <NavLink to=''>Home</NavLink>
+      <NavLink to={PrivateRoutes.SPACES}>Spaces</NavLink>
       <NavLink to={PrivateRoutes.DASHBOARD}>Dashboard</NavLink>
       <NavLink to={PrivateRoutes.PROFILE}>Profile</NavLink>
       <NavLink to={`/${PublicRoutes.LOGIN}`} onClick={logoutHandler} style={{ float: 'right' }}>
