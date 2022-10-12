@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserActions } from '../../hooks';
-import { User } from '../../models';
+import { IUser } from '../../models';
 import { PrivateRoutes } from '../../routes';
 import { loginService } from '../../services';
 
@@ -28,7 +28,7 @@ const Login = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const user: User | undefined = await loginService(loginFormData.username, loginFormData.password);
+    const user: IUser | undefined = await loginService(loginFormData.username, loginFormData.password);
     login(user);
     if (user) navigate(`/${PrivateRoutes.PRIVATE}`);
     setLoginFormData({

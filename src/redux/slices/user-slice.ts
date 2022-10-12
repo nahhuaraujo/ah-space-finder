@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User } from '../../models';
-import { getLocalStorage, setLocalStorage, clearLocalStorage } from '../../utils/localStorage';
+import { IUser } from '../../models';
+import { clearLocalStorage, getLocalStorage, setLocalStorage } from '../../utils/localStorage';
 
-const initialState: User = {
+const initialState: IUser = {
+  id: 0,
   email: '',
   username: '',
   job: '',
