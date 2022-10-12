@@ -1,6 +1,3 @@
-export const capitalizeFirstLetter = (value: any) => {
-  if (typeof value === 'number') {
-    return value;
-  }
+export const capitalizeFirstLetter = (value: string): string => {
   return value && value[0].toUpperCase() + value.slice(1);
 };

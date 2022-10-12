@@ -9,22 +9,16 @@ const Profile = () => {
   const userAttrs = Object.keys(user);
   const userVals = Object.values(user);
 
-  const renderUserData = () => {
-    let data = [];
-    for (let i = 0; i < userAttrs.length; i++) {
-      data.push(
-        <S.UserDataRow key={i}>
-          <p>{capitalizeFirstLetter(userAttrs[i])}:</p> {userVals[i]}
-        </S.UserDataRow>
-      );
-    }
-    return data;
-  };
-
   return (
     <S.Profile>
       <h1>Profile</h1>
-      <S.DataContainer>{renderUserData()}</S.DataContainer>
+      <S.ProfileDataContainer>
+        {userAttrs.map((attr, i) => (
+          <S.ProfileDataRow key={i}>
+            <p>{capitalizeFirstLetter(attr)}:</p> <span>{userVals[i]}</span>
+          </S.ProfileDataRow>
+        ))}
+      </S.ProfileDataContainer>
     </S.Profile>
   );
 };
